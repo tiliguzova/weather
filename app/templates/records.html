@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>История</title>
+    <link rel="icon" href="{% static 'icon.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/weather.css' %}">
+</head>
+<body>
+    <h1>История запросов</h1>
+    {% if records %}
+    {% for weather in records %}
+        <div class="weather">
+        <h3 class="city">Город: {{weather.city}}</h3>
+            <div class="details">
+                <div class="string">
+                    <span class="label">Влажность:</span>
+                    <span class="value">{{weather.humidity}}</span>
+                </div>
+                <div class="string">
+                    <span class="label">Давление:</span>
+                    <span class="value">{{weather.pressure}}</span>
+                </div>
+                <div class="string">
+                    <span class="label">Температура:</span>
+                    <span class="value">{{weather.temperature}}</span>
+                </div>
+                <div class="string">
+                    <span class="label">Описание:</span>
+                    <span class="value">{{weather.description}}</span>
+                </div>
+
+                <div class="string">
+                    <span class="label">Скорость ветра:</span>
+                    <span class="value">{{weather.speed}}</span>
+                </div>
+                <div class="string">
+                    <span class="label">Дата и время:</span>
+                    <span class="value">{{weather.created_at|date:"d.m.Y H:i"}}</span>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% else %}
+    <h1 class="no-records">Нет запросов</h1>
+    {% endif %}
+</body>
+</html>
