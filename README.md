@@ -39,5 +39,5 @@ python manage.py runserver
 
 ### Приложение
 
-![Альтернативный текст](../static/images/home.png)  
-![Альтернативный текст](../static/images/history.png)
+![Альтернативный текст](static/images/home.png)  
+![Альтернативный текст](static/images/history.png)
